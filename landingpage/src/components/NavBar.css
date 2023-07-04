@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 2em;
+}
+
+.list {
+    display: flex;
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list li {
+    margin-right: 1em;
+}
+
+.list, .container a {
+    text-decoration: none;
+}
