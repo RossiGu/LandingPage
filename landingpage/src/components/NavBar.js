@@ -5,12 +5,17 @@ const NavBar = () => {
   return (
     <nav className="container">
         <Link to="/">
-            <h1>Logo veterinaria</h1>
+            <h1>Logo</h1>
         </Link>
         <div className="list">
             <ul>
                 <li>
-                    <Link to="/beneficios">Beneficios</Link>
+                    <Link to="/sobre">Sobre</Link>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <Link to="/preservacao">Preservação</Link>
                 </li>
             </ul>
             <ul>

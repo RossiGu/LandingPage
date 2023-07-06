@@ -3,9 +3,7 @@ body {
     margin: 0;
     font-family: "Roboto Mono";
     color: #f7ffe5;
-    background-image: url(../public/layered-waves-haikei.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #a0c49d;
 }
 
 nav, a {
