@@ -1,5 +1,6 @@
 .home {
     display: flex;
+    margin-left: 25px;
 }
 
 .content, .contentImage {
@@ -16,32 +17,39 @@
 
 .content h2 {
     margin-top: 100px;
-    margin-left: 80px;
+    margin-left: 10px;
     font-size: 80px;
     color: #f7ffe5;
 }
 
 .content p {
-    margin-top: 50px;
-    margin-left: 80px;
+    margin-top: 80px;
+    margin-left: 10px;
     color: #ffffff;
 }
 
 .content button {
-    background-color: #E1ECC8;
-    border: none;
+    display: inline-flex;
+    border: 0.25em solid #C4D7B2;
+    border-radius: 2em;
+    box-sizing: border-box;
     color: #A0C49D;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 8px;
-    justify-content: center;
-  }
-  
+    font-size: 16px;
+    font-weight: 600;
+    padding: 1em 2.5em;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+
 .content button:hover {
-    background-color: #C4D7B2;
+    color: #F7FFE5;
+    background-color: #A0C49D;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-2px);
+}
+
+.content button:active {
+    box-shadow: none;
+    transform: translateY(0);
 }
