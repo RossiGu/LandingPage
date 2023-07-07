@@ -1,4 +1,5 @@
 import "./Register.css"
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   return (
@@ -41,6 +42,7 @@ const Register = () => {
                 placeholder="Confirme sua senha"
                 />
             </label>
+            <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
             <button className="btnForm">Enviar</button>
         </form>
     </div>

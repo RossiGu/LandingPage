@@ -1,4 +1,5 @@
 import "./Login.css"
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -23,6 +24,7 @@ const Login = () => {
                 placeholder="Insira sua senha"
                 />
             </label>
+            <p>Não possui uma conta? <Link to='/registro'>Inscreva-se</Link></p>
             <button className="btnForm">Entrar</button>
         </form>
     </div>

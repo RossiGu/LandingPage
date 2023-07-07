@@ -20,36 +20,64 @@ a:hover {
 form {
     max-width: 50%;
     margin: 0 auto;
+    background-color: #F7FFE5;
+    color: #a0c49d;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
 }
 
 label {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 label span {
     font-weight: bold;
-    margin: 0;
+    margin-top: 40px;
+    margin-left: 40px;
 }
 
 input {
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid #858484;
-    padding: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
     background-color: transparent;
+    box-sizing: border-box;
+    padding: 10px;
+    border: #C4D7B2 solid 2px;
+}
+
+form a {
+    color: #a0c49d;
+    text-decoration: underline;
+}
+
+form a:hover {
+    color: #C4D7B2;
 }
 
 .btnForm {
+    color: #f7ffe5;
+    margin: 30px;
     align-items: center;
-    background-color: green;
+    background-color: #a0c49d;
     text-align: center;
     cursor: pointer;
-    width: 100px;
-    height: 25px;
+    width: 200px;
+    height: 40px;
     border: none;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 2em;
+}
+
+.btnForm:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-2px);
+}
+
+.btnForm:active {
+    box-shadow: none;
+    transform: translateY(0);
 }
