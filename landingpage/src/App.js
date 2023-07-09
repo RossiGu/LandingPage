@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
+
 import NavBar from './components/NavBar';
 import Home from './pages/Home/Home'
 import Sobre from './pages/Sobre/Sobre'

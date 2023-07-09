@@ -30,19 +30,18 @@ label {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 20px;
 }
 
 label span {
     font-weight: bold;
-    margin-top: 40px;
-    margin-left: 40px;
+    margin-top: 20px;
+    margin-left: 80px;
 }
 
 input {
     margin-top: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
     background-color: transparent;
     box-sizing: border-box;
     padding: 10px;
@@ -52,6 +51,7 @@ input {
 form a {
     color: #a0c49d;
     text-decoration: underline;
+    font-weight: bold;
 }
 
 form a:hover {
