@@ -1,6 +1,6 @@
 import "./Register.css"
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import auth from '../../firebase/config'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
 
-  const [name, setName] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,8 +19,8 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
-    
-    createUserWithEmailAndPassword(auth, email, password)
+
+    createUserWithEmailAndPassword(auth, email, password, confirmPassword)
     .then((useCredential) => {
       console.log(useCredential)
     }).catch((error) => {
@@ -35,9 +35,16 @@ const Register = () => {
       } else {
         systemError = "Ocorreu um erro, tente mais tarde!"
       }
-  
+
+      if (password !== confirmPassword) { 
+        systemError = "As senhas precisam ser iguais" 
+        return
+      }
+      
       setError(systemError)
+      
     })
+    
     
     
   };
@@ -46,6 +53,17 @@ const Register = () => {
     <div className="register">
       <h2>Cadastre-se agora!</h2>
         <form onSubmit={handleSubmit}>
+            <label>
+                <span>Nome:</span>
+                <input 
+                type="text"
+                name="displayName"
+                required
+                placeholder="Nome do usuário"
+                value={displayName}
+                onChange={e => setDisplayName(e.target.value)}
+                />
+            </label>
             <label>
                 <span>Email:</span>
                 <input 
@@ -66,6 +84,17 @@ const Register = () => {
                 placeholder="Insira sua senha"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                />
+            </label>
+            <label>
+                <span>Confirmação de Senha:</span>
+                <input 
+                type="password"
+                name="confirmPassword"
+                required
+                placeholder="Confirme sua senha"
+                value={confirmPassword} 
+                onChange={e => setConfirmPassword(e.target.value)}
                 />
             </label>
             <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
