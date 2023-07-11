@@ -1,40 +1,43 @@
 import "./Register.css"
 import { Link } from 'react-router-dom'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useState } from "react";
-import { auth } from "../../firebase/config";
+import { useState, useEffect } from "react";
+import auth from '../../firebase/config'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 
 
 const Register = () => {
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
   
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth);
 
-  function handleSignOut (e) {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((useCredential) => {
+      console.log(useCredential)
+    }).catch((error) => {
+      console.log(error)
+    })
+    
 
-    createUserWithEmailAndPassword(email, password)
-
-  }
-
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
-
+    if (password !== confirmPassword) {
+      setError("As senhas precisam ser iguais.");
+      return;
+    }
+  };
 
   return (
     <div className="register">
       <h2>Cadastre-se agora!</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
                 <span>Nome:</span>
                 <input 
@@ -42,8 +45,8 @@ const Register = () => {
                 name="displayName"
                 required
                 placeholder="Nome do usuário"
-                onChange={e => setName(e.target.value)}
                 value={name}
+                onChange={e => setName(e.target.value)}
                 />
             </label>
             <label>
@@ -53,8 +56,8 @@ const Register = () => {
                 name="email"
                 required
                 placeholder="E-mail do usuário"
-                onChange={e => setEmail(e.target.value)}
                 value={email}
+                onChange={e => setEmail(e.target.value)}
                 />
             </label>
             <label>
@@ -64,8 +67,8 @@ const Register = () => {
                 name="password"
                 required
                 placeholder="Insira sua senha"
-                onChange={e => setPassword(e.target.value)}
                 value={password}
+                onChange={e => setPassword(e.target.value)}
                 />
             </label>
             <label>
@@ -75,12 +78,12 @@ const Register = () => {
                 name="passwordConfirm"
                 required
                 placeholder="Confirme sua senha"
+                value={confirmPassword} 
                 onChange={e => setConfirmPassword(e.target.value)}
-                value={confirmPassword}
                 />
             </label>
             <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
-            <button onClick={handleSignOut} className="btnForm">Cadastrar</button>
+            <button className="btnForm">Cadastrar</button>
         </form>
     </div>
   )

@@ -1,40 +1,36 @@
 import "./Login.css"
 import { Link } from 'react-router-dom'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useState } from "react";
-import { auth } from "../../firebase/config";
+import { useState, useEffect } from "react";
+import auth from '../../firebase/config'
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  
 
-  function handleSignIn (e) {
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    signInWithEmailAndPassword(email, password)
+    setError("")
 
-  }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((useCredential) => {
+        console.log(useCredential)
+      }).catch((error) => {
+        console.log(error)
+      })
 
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
-
-  if (user) {
-    return console.log(user)
+      setError("")
   }
   
 
   return (
     <div className="login">
         <h2>Entre em sua conta!</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
                 <span>Email:</span>
                 <input 
@@ -42,8 +38,8 @@ const Login = () => {
                 name="email"
                 required
                 placeholder="E-mail do usuário"
-                onChange={e => setEmail(e.target.value)}
                 value={email}
+                onChange={e => setEmail(e.target.value)}
                 />
             </label>
             <label>
@@ -53,12 +49,12 @@ const Login = () => {
                 name="password"
                 required
                 placeholder="Insira sua senha"
-                onChange={e => setPassword(e.target.value)}
                 value={password}
+                onChange={e => setPassword(e.target.value)}
                 />
             </label>
             <p>Não possui uma conta? <Link to='/registro'>Inscreva-se</Link></p>
-            <button onClick={handleSignIn}  className="btnForm" >Entrar</button>
+            <button className="btnForm" >Entrar</button>
         </form>
     </div>
   )
