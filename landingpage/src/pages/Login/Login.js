@@ -55,6 +55,7 @@ const Login = () => {
             </label>
             <p>Não possui uma conta? <Link to='/registro'>Inscreva-se</Link></p>
             <button className="btnForm" >Entrar</button>
+            {error && <p className="error">{error}</p>}
         </form>
     </div>
   )

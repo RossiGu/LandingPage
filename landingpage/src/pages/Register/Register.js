@@ -18,37 +18,34 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
+    setError(null);
     
     createUserWithEmailAndPassword(auth, email, password)
     .then((useCredential) => {
       console.log(useCredential)
     }).catch((error) => {
       console.log(error)
+      
+      let systemError
+  
+      if(error.message.includes("Password")) {
+        systemError = "A senha precisa ter pelo menos 6 caracteres!"
+      } else if (error.message.includes("email-already")) {
+        systemError = "E-mail já cadastrado!"
+      } else {
+        systemError = "Ocorreu um erro, tente mais tarde!"
+      }
+  
+      setError(systemError)
     })
     
-
-    if (password !== confirmPassword) {
-      setError("As senhas precisam ser iguais.");
-      return;
-    }
+    
   };
 
   return (
     <div className="register">
       <h2>Cadastre-se agora!</h2>
         <form onSubmit={handleSubmit}>
-            <label>
-                <span>Nome:</span>
-                <input 
-                type="text"
-                name="displayName"
-                required
-                placeholder="Nome do usuário"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                />
-            </label>
             <label>
                 <span>Email:</span>
                 <input 
@@ -71,19 +68,9 @@ const Register = () => {
                 onChange={e => setPassword(e.target.value)}
                 />
             </label>
-            <label>
-                <span>Confirmação de Senha:</span>
-                <input 
-                type="password"
-                name="passwordConfirm"
-                required
-                placeholder="Confirme sua senha"
-                value={confirmPassword} 
-                onChange={e => setConfirmPassword(e.target.value)}
-                />
-            </label>
             <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
             <button className="btnForm">Cadastrar</button>
+            {error && <p className="error">{error}</p>}
         </form>
     </div>
   )

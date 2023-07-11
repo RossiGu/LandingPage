@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import  { AuthProvider } from './contexts/AuthContext'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -16,29 +16,23 @@ import Footer from './components/Footer';
 
 function App() {
 
-  const [authUser, setAuthUser] = useState(null)
+  const [authUser, setAuthUser] = useState(undefined)
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user)
       } else {
-        setAuthUser(null)
+        setAuthUser(undefined)
       }
     })
 
     return () => {
       listen()
     }
-
+    
   }, [])
 
-
-  const signOutUser = () => {
-    signOut(auth).then(() => {
-      console.log("Saiu com sucesso")
-    }).catch(error => console.log(error))
-  }
 
   return (
     <div className="App">
@@ -48,10 +42,10 @@ function App() {
           <div>
             <Routes>
               <Route path="/" element={<Home />}/>
-              <Route path="/sobre" element={<Sobre />}/>
-              <Route path="/preservacao" element={<Preservacao />}/>
-              <Route path="/registro" element={<Register />}/>
-              <Route path="/login" element={<Login />}/>
+              <Route path="/sobre" element={authUser ? <Sobre /> : <Navigate to="/login"/>}/>
+              <Route path="/preservacao" element={authUser ? <Preservacao /> : <Navigate to="/login"/>}/>
+              <Route path="/registro" element={!authUser ? <Register /> : <Navigate to="/"/>}/>
+              <Route path="/login" element={!authUser ? <Login /> : <Navigate to="/"/>}/>
             </Routes>
           </div>
           <Footer />
