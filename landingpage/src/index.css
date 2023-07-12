@@ -6,17 +6,6 @@ body {
     background-color: #a0c49d;
 }
 
-nav, a {
-    text-decoration: none;
-    border: none;
-    color: #f7ffe5;
-    font-size: 1em;
-}
-
-a:hover {
-    color: #e1ecc8;
-}
-
 form {
     max-width: 50%;
     margin: 0 auto;
@@ -81,3 +70,11 @@ form a:hover {
     box-shadow: none;
     transform: translateY(0);
 }
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 5px;
+    border-radius: 5px;
+  }

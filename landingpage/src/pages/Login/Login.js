@@ -14,13 +14,25 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setError("")
+    setError(null)
 
     signInWithEmailAndPassword(auth, email, password)
       .then((useCredential) => {
         console.log(useCredential)
       }).catch((error) => {
         console.log(error)
+
+        let systemError
+
+        if(error.message.includes("wrong-password")) {
+          systemError = "Senha errada!"
+        } else if (error.message.includes("user-not-found")) {
+          systemError = "E-mail não cadastrado!"
+        } else {
+          systemError = "Ocorreu um erro, tente mais tarde!"
+        }
+        
+        setError(systemError)
       })
 
       setError("")

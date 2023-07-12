@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
+import auth from '../firebase/config'
 import { useAuthValue } from '../contexts/AuthContext'
 import { signOut } from 'firebase/auth';
-import auth from '../firebase/config'
 import "./NavBar.css"
 
 const NavBar = () => {

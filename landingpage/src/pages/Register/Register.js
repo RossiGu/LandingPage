@@ -11,16 +11,13 @@ const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null);
 
-    createUserWithEmailAndPassword(auth, email, password, confirmPassword)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((useCredential) => {
       console.log(useCredential)
     }).catch((error) => {
@@ -35,18 +32,10 @@ const Register = () => {
       } else {
         systemError = "Ocorreu um erro, tente mais tarde!"
       }
-
-      if (password !== confirmPassword) { 
-        systemError = "As senhas precisam ser iguais" 
-        return
-      }
       
       setError(systemError)
       
     })
-    
-    
-    
   };
 
   return (
@@ -84,17 +73,6 @@ const Register = () => {
                 placeholder="Insira sua senha"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                />
-            </label>
-            <label>
-                <span>Confirmação de Senha:</span>
-                <input 
-                type="password"
-                name="confirmPassword"
-                required
-                placeholder="Confirme sua senha"
-                value={confirmPassword} 
-                onChange={e => setConfirmPassword(e.target.value)}
                 />
             </label>
             <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
