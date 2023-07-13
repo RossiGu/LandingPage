@@ -3,6 +3,7 @@ import { useAuthValue } from '../../contexts/AuthContext'
 import auth from '../../firebase/config'
 import { signOut } from 'firebase/auth';
 import "./NavBar.css"
+import logo from "../../images/logo.png"
 
 const NavBar = () => {
 
@@ -18,7 +19,7 @@ const NavBar = () => {
   return (
     <nav className="container">
         <Link to="/">
-            <h1>Logo</h1>
+            <img src={logo} alt="Logo" />
         </Link>
         <div className="list">
             <ul>
