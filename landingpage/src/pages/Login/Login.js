@@ -1,6 +1,6 @@
 import "./Login.css"
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import auth from '../../firebase/config'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -66,8 +66,8 @@ const Login = () => {
                 />
             </label>
             <p>Não possui uma conta? <Link to='/registro'>Inscreva-se</Link></p>
-            <button className="btnForm" >Entrar</button>
             {error && <p className="error">{error}</p>}
+            <button className="btnForm" >Entrar</button>
         </form>
     </div>
   )

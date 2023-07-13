@@ -1,7 +1,6 @@
 import React from 'react'
 import './Home.css'
 import image from '../../images/homeImage.png'
-import auth from '../../firebase/config'
 import { useAuthValue } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 
@@ -22,11 +21,11 @@ const Home = () => {
             </>
           )}
           {authUser && (
-             <>
+            <>
              <Link to="/preservacao">
                <button className='btnContent'>Junte-se agora!</button>
              </Link>
-           </>
+            </>
           )}
       </div>
       <div className='contentImage'>

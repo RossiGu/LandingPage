@@ -76,8 +76,8 @@ const Register = () => {
                 />
             </label>
             <p>Já possui uma conta? <Link to='/login'>Entre aqui</Link></p>
-            <button className="btnForm">Cadastrar</button>
             {error && <p className="error">{error}</p>}
+            <button className="btnForm">Cadastrar</button>
         </form>
     </div>
   )

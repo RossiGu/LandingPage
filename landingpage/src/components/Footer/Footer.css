@@ -1,0 +1,28 @@
+.footer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-image: url(../../../public/footer.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position:100%;
+    width: 100%;
+    height: 80%;
+}
+
+.contentFooter  {
+    margin-top: 300px;
+    font-size: 30px;
+    color: #A0C49D;
+}
+
+.contentFooter a {
+    color: #A0C49D; 
+}
+
+.contentFooter a:hover {
+    color: #f7ffe5;
+    text-decoration: underline;
+}

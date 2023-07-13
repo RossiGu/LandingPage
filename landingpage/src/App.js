@@ -6,13 +6,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 import auth from './firebase/config';
 
 
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Home from './pages/Home/Home'
 import Sobre from './pages/Sobre/Sobre'
 import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
 import Preservacao from './pages/Preservacao/Preservacao'
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
 

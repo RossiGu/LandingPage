@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import auth from '../firebase/config'
-import { useAuthValue } from '../contexts/AuthContext'
+import { useAuthValue } from '../../contexts/AuthContext'
+import auth from '../../firebase/config'
 import { signOut } from 'firebase/auth';
 import "./NavBar.css"
 
