@@ -1,0 +1,37 @@
+.contentP {
+    text-align: center;
+    display: block;
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    font-size: 1.5em;
+}
+
+.style {
+    width: 50%;
+    height: auto;
+    color: #A0C49D;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E1ECC8;
+    border-radius: 50px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;;
+}
+
+.style img{
+    width: 40%;
+}
+
+.style h2 {
+    margin-left: 20px;
+}
+
+.style p {
+    text-align: start;
+    font-size: 14px;
+    font-weight: normal;
+}
