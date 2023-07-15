@@ -19,43 +19,43 @@ const Preservacao = () => {
         <div className='style'>
           <img src={eco} alt="" />
           <Link to='/'>
-            <h2>Conservação de ecossistemas<br /></h2>
+            <h2>Conservação de ecossistemas &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={recursos} alt="" />
           <Link to='/'>
-            <h2>Equilíbrio de recursos naturais<br /></h2>
+            <h2>Equilíbrio de recursos naturais &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={poluicao} alt="" />
           <Link to='/'>
-            <h2>Combate a poluição<br /></h2>
+            <h2>Combate a poluição &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={reciclagem} alt="" />
           <Link to='/'>
-            <h2>Reciclagem<br /></h2>
+            <h2>Reciclagem &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={arvore} alt="" />
           <Link to='/'>
-            <h2>Plantar árvores<br /></h2>
+            <h2>Plantar árvores &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={transporte} alt="" />
           <Link to='/'>
-            <h2>Transportes sustentáveis<br /></h2>
+            <h2>Utilização de transportes sustentáveis &#10141;<br /></h2>
           </Link>
         </div>
         <div className='style'>
           <img src={rios} alt="" />
           <Link to='/'>
-            <h2>Limpeza dos corpos hídricos<br /></h2>
+            <h2>Limpeza dos corpos hídricos &#10141;<br /></h2>
           </Link>
         </div>
       </div>

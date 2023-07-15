@@ -1,0 +1,25 @@
+.styleAbout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.titleSobre {
+    font-size: 1.5em;
+}
+
+.sobre {
+    text-align: justify;
+    width: 60%;
+    color: #A0C49D;
+    background-color: #F7FFE5;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    border-radius: 20px;
+}
+
+.sobre p {
+    margin: 30px;
+}
