@@ -13,6 +13,13 @@ import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
 import Preservacao from './pages/Preservacao/Preservacao'
 import Footer from './components/Footer/Footer';
+import Ecossistemas from './pages/Preservacao/Ecossistemas'
+import Recursos from './pages/Preservacao/Recursos';
+import Poluicao from './pages/Preservacao/Poluicao';
+import Reciclagem from './pages/Preservacao/Reciclagem';
+import Arvores from './pages/Preservacao/Arvores'
+import Transportes from './pages/Preservacao/Transportes'
+import Limpeza from './pages/Preservacao/Limpeza'
 
 function App() {
 
@@ -49,6 +56,15 @@ function App() {
             </Routes>
           </div>
           <Footer />
+          <Routes>
+            <Route path='/conservacao_ecossistemas' element={authUser ? <Ecossistemas /> : <Navigate to="/login"/>}/>
+            <Route path='/equilibrio-recursos' element={authUser ? <Recursos /> : <Navigate to="/login"/>}/>
+            <Route path='/combate-poluicao' element={authUser ? <Poluicao /> : <Navigate to="/login"/>}/>
+            <Route path='/reciclagem' element={authUser ? <Reciclagem /> : <Navigate to="/login"/>}/>
+            <Route path='/plantar-arvores' element={authUser ? <Arvores /> : <Navigate to="/login"/>}/>
+            <Route path='/transportes-sustentaveis' element={authUser ? <Transportes /> : <Navigate to="/login"/>}/>
+            <Route path='/limpeza-hidricos' element={authUser ? <Limpeza /> : <Navigate to="/login"/>}/>
+          </Routes>
         </BrowserRouter>
         </AuthProvider>
     </div>
